@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+          font-family: "poppins", sans-serif;
+        }
+        .container{
+     
+        width: 95%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .hex-colors{
+         
+          text-align: center;
+        }
+        .hex-colors h1{
+          font-size: 2 rem;
+          text-transform: uppercase;
+          animation: changeColor 5s infinite alternate;
+        }
+        .hex-colors h2{
+          font-size: 2 rem;
+         
+      margin-top: 5%;
+        }
+        @keyframes changeColor{
+       0%{
+         color: violet;
+         }
+       20%{
+        color: indigo;
+        }
+      40%{
+         color: green;
+        }
+      60%{
+       color: yellow;
+        }
+          80% {
+            color: blue;
+          }
+           100%{
+             color: red;
+           }
+        } 
+      </style>
+    </head>
+    
+    <body>
+    <div class="container">
+      <div class="hex-colors">
+      <h1>Click the below button to display hex code for random Color</h1>
+      <h2>The hex code of the color is #<span id="hexcode">000000</span></h2>
+         <button onclick="changeColors()" type="button" class="btn btn-primary">Click me</button></div>
+      </div>
+    </div>
+    <script>
+      /*let color=prompt('enter your color');
+      document.body.style.background=color;*/
+    function changeColors(){
+      var hex_numbers=['0','1','2','3','4','5','6','7','9','9','A','B','C','D','E','F'];
+      var hexcode= '';
+      for(var i=0;i<6;i++){
+        var random_index=Math.floor(Math.random()* hex_numbers.length);
+        hexcode+= hex_numbers[random_index];
+      }
+    document.getElementById('hexcode').innerHTML= hexcode;
+    document.getElementsByTagName('body')[0]. style.background='#'+ hexcode;
+    }
+    </script>
+    </body>
+</html>
